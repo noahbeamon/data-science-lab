@@ -53,7 +53,7 @@ const Footer = () => {
                 <hr />
                 <div className="row">
                     <p className="col-sm">
-                        &copy; {new Date().getFullYear()} University of Virginia Wastewater Tracker
+                        &copy; {new Date().getFullYear()} Heman Shakeri Lab
                     </p>
                 </div>
             </div>
