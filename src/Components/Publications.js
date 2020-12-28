@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Publications.css"; 
 import { MdSubtitles } from "react-icons/md";
 import { IoIosJournal, IoIosCalendar, IoMdSearch } from "react-icons/io";
-import JournalJSON from "./Journals.json"; 
+import PublicationsJSON from "./Publications.json"; 
 
 const Publications = () => {
     const[inputTitle, setInputTitle] = useState("");
@@ -14,12 +14,13 @@ const Publications = () => {
 
     return(
         <div className="App">
-            <p style={{margin: 20}}>Click an item in the list to open the publication.</p>
+            <h1 style={{margin: 20}}><strong>Publications</strong></h1>
+            <p style={{margin: 20}}>Click an item in the list to open the publication content.</p>
             <div className = "content-search-container">
                 <div className = "content-results-container">
                     <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong>
                         <div className="scroll-container">
-                            {JournalJSON.filter((val)=>{
+                            {PublicationsJSON.filter((val)=>{
                                 if (inputTitle == "" && inputJournal == "" && inputYear == "" && inputDescription == "") {
                                     return val; 
                                 }else if (val.title.toLowerCase().includes(inputTitle.toLowerCase()) && val.journal.toLowerCase().includes(inputJournal.toLowerCase()) && val.year.toLowerCase().includes(inputYear.toLowerCase()) && val.description.toLowerCase().includes(inputDescription.toLowerCase())) {
@@ -82,14 +83,14 @@ const Publications = () => {
                         </div>
                    </div>
                    <div style={{margin: 20}}>
-                       <p>Keywords from Description</p>
+                       <p>Keywords</p>
                     <div className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="basic-addon">
                                 <i className="fa fa-user prefix"><IoMdSearch/></i>
                                 </span>
                             </div>
-                            <input type="text" className="form-control" placeholder="keywords" value={inputDescription}
+                            <input type="text" className="form-control" placeholder="description" value={inputDescription}
                             onChange={event => setInputDescription(event.target.value)}
                             />
                         </div>
