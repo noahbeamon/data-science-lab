@@ -38,7 +38,7 @@ const Footer = () => {
                                 <MdEmail size={20}/>
                                 <a style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"mailto:" + "datascience@virginia.edu"}>Email</a>
                             </li>
-                            <li>
+                            <li>cmd
                                 <AiFillPhone size={20} style={{marginRight: 10}}/>
                                 (434) 982-2600
                             </li>
