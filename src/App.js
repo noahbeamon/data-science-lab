@@ -8,6 +8,10 @@ import Personnel from "./Components/Personnel";
 import Faqs from "./Components/Faqs";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer"; 
+
+//projects
+import Allofus from "./Components/Projects/Allofus"; 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +26,11 @@ function App() {
       <Router>
       <Navbar />
         <Switch>
+          {/*Projects*/}
+          <Route path="/Allofus" component={Allofus}>
+            <Allofus />
+          </Route>
+          {/*Tabs*/}
           <Route path="/Faq" component={Faqs}>
             <Faqs />
           </Route>
