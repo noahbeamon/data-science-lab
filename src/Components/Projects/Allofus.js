@@ -4,7 +4,9 @@ import ReactMd from 'react-md-file';
 const Allofus = () => {
     return(
         <div className="App">
-            <p>all of us</p>
+            <div className="content-container">
+                <ReactMd fileName="./Allofus.md" />
+            </div>
         </div>
     )
 }
