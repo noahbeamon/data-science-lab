@@ -11,6 +11,10 @@ import Footer from "./Components/Footer";
 
 //projects
 import Allofus from "./Components/Projects/Allofus"; 
+import Wastewater from "./Components/Projects/Wastewater"; 
+
+//personnel
+import HemanShakeri from "./Components/Personnel/HemanShakeri"; 
 
 import {
   BrowserRouter as Router,
@@ -27,8 +31,15 @@ function App() {
       <Navbar />
         <Switch>
           {/*Projects*/}
+          <Route path="/Wastewater" component={Wastewater}>
+            <Wastewater />
+          </Route>
           <Route path="/Allofus" component={Allofus}>
             <Allofus />
+          </Route>
+          {/*Personnel*/}
+          <Route path="/HemanShakeri" component={HemanShakeri}>
+            <HemanShakeri />
           </Route>
           {/*Tabs*/}
           <Route path="/Faq" component={Faqs}>

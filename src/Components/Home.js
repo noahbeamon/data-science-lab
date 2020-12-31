@@ -11,6 +11,7 @@ import RecentsJSON from "./Recents.json";
 import { MdSubtitles } from "react-icons/md";
 import { IoIosCalendar, IoMdSearch } from "react-icons/io";
 import { BiHash } from "react-icons/bi"; 
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 const Home = () => {
     const[name, setName] = useState("");
@@ -24,6 +25,7 @@ const Home = () => {
     const[inputTitle, setInputTitle] = useState("");
     const[inputDescription, setInputDescription] = useState("");
     const[inputTags, setInputTags] = useState("");
+    const[inputTime, setInputTime] = useState("");
 
     const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
@@ -34,13 +36,21 @@ const Home = () => {
             emailjs.sendForm('service_qsm1dle', 'template_4sqbn5u', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
               .then((result) => {
                   console.log(result.text);
-                  alert('We have notified the lab of your interest. Someone will send you an email if a response is neccessary.')
+                  window.location.href = '/Home'; 
+              }, (error) => {
+                  console.log(error.text);
+              });
+
+              emailjs.sendForm('service_qsm1dle', 'template_pe26y4e', e.target, 'user_WTkh9w5eegcbYe1z7Oo8u')
+              .then((result) => {
+                  console.log(result.text);
+                  alert('We have notified the lab of your inquiry. Someone will send you an email if a response is neccessary.')
                   window.location.href = '/Home'; 
               }, (error) => {
                   console.log(error.text);
               });
         }else{
-            alert("Please enter a name, email address, and description")
+            alert("Please enter a name, email address, and note.")
         }
       }
 
@@ -54,7 +64,7 @@ const Home = () => {
                 <Tab>General Info</Tab>
                 <Tab>Resources</Tab>
                 <Tab>Announcements</Tab>
-                <Tab>Inquiries and Sugestions</Tab>
+                <Tab>Feedback</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -63,20 +73,20 @@ const Home = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <p>Review recent activity or see the projects tab for more details.</p>
+                <p>Review activity or see the projects tab for more details.</p>
                 <div style={{display: "flex", flexDirection: "row"}}>
                 <div>
                     <div className = "content-results-container">
-                    <strong style={{fontSize: 25, marginBottom: 10}}>Recent</strong>
+                    <strong style={{fontSize: 25, marginBottom: 10}}>Activity</strong>
                         <div className="scroll-container">
                             {RecentsJSON.filter((val)=>{
-                                if (inputTitle == "" && inputTags == "" && inputDescription == "") {
+                                if (inputTitle == "" && inputTags == "" && inputDescription == "" && inputTime =="") {
                                     return val; 
-                                }else if (val.title.toLowerCase().includes(inputTitle.toLowerCase()) && val.tags.toLowerCase().includes(inputTags.toLowerCase()) && val.description.toLowerCase().includes(inputDescription.toLowerCase())) {
+                                }else if (val.title.toLowerCase().includes(inputTitle.toLowerCase()) && val.tags.toLowerCase().includes(inputTags.toLowerCase()) && val.date_time.toLowerCase().includes(inputTime.toLowerCase()) && val.description.toLowerCase().includes(inputDescription.toLowerCase())) {
                                     return val; 
                                 }
                             }).map((val, key)=>{
-                                return (
+                                return ( 
                                 <div style={{borderRadius: "5px", cursor: "pointer"}} className = "list-element"
                                 onClick = {() => {
                                     window.open(val.url);  
@@ -87,6 +97,7 @@ const Home = () => {
                                             <strong>{val.title}</strong>
                                             <p>{val.description}</p>
                                             <p>tags: {val.tags}</p>
+                                            <p style={{color: "gray"}}>{val.date_time}</p>
                                         </div>
                                         <div style={{marginLeft: 10}}>
                                             <img style={{width: 250, borderRadius: 5}} src={val.photo}/>
@@ -100,7 +111,7 @@ const Home = () => {
                 </div>
                 <div style={{justifyContent: "center", alignItems: "center", marginTop: 0}}>
                 <div className = "content-filter-container-a">
-                    <strong style={{fontSize: 25}}>Filter Recent Feed</strong>
+                    <strong style={{fontSize: 25}}>Filter Activity</strong>
                     <div style={{margin: 20}}>
                         <p>Title</p>
                         <div className="input-group">
@@ -140,6 +151,19 @@ const Home = () => {
                             />
                         </div>
                    </div>
+                   <div style={{margin: 20}}>
+                       <p>Date/Time</p>
+                    <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="basic-addon">
+                                <i className="fa fa-user prefix"><IoIosCalendar/></i>
+                                </span>
+                            </div>
+                            <input type="text" className="form-control" placeholder="January 1, 2021 12:00 am" value={inputTime}
+                            onChange={event => setInputTime(event.target.value)}
+                            />
+                        </div>
+                   </div>
                    <div className="button" style={{backgroundColor: buttonColor, cursor: "pointer", borderRadius: 5, margin: 20}}
                             onMouseOver={() =>{
                                 setButtonColor("rgba(46, 61, 130, 0.8)");
@@ -151,6 +175,7 @@ const Home = () => {
                                 setInputTitle("");
                                 setInputTags("");
                                 setInputDescription("");
+                                setInputTime(""); 
                                 setButtonColor("rgba(46, 61, 130, 1)");
                             }}
                             >
@@ -161,7 +186,7 @@ const Home = () => {
                     <strong>Repositories and Databases</strong>
                 </div>
                 <div style={{display: "flex", flexDirection: "row"}}>
-                    <div style={{border: button1, margin: 20, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
+                    <div style={{border: button1, margin: 10, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
                     onMouseOver={() => {
                         setButton1("2px solid rgb(0, 0, 0, 0.5)")
                     }}
@@ -175,7 +200,7 @@ const Home = () => {
                         <AiFillGithub size={30} style={{marginRight: 10}}/>
                         <strong>Github</strong>
                     </div>
-                    <div style={{border: button2, margin: 20, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
+                    <div style={{border: button2, margin: 10, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
                     onMouseOver={() => {
                         setButton2("2px solid rgb(0, 0, 0, 0.5)")
                     }}
@@ -189,7 +214,7 @@ const Home = () => {
                         <SiGooglescholar size={30} style={{marginRight: 10}}/>
                         <strong>Google Scholar</strong>
                     </div>
-                    <div style={{border: button3, margin: 20, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
+                    <div style={{border: button3, margin: 10, padding: 10, borderRadius: 5, cursor: "pointer", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}
                     onMouseOver={() => {
                         setButton3("2px solid rgb(0, 0, 0, 0.5)")
                     }}
@@ -219,31 +244,37 @@ const Home = () => {
                 <TabPanel>
                     <div>
                     <strong>Submit inquiries and suggestions, or report issues regarding our web applications here</strong>
-                    <form className="contact-form" onSubmit={sendEmail}>
-                        <div style={{display: "flex", flexDirection: "column"}}>
-                            <div>
-                                <label style={{margin: 10}}>Name:</label>
-                                <input style={{margin: 10}} type="text" name="user_name" onChange={event => setName(event.target.value)}/>
-                            </div>
-                            <div>
-                                <label style={{margin: 10}}>Email:</label>
-                                <input style={{margin: 10}} type="email" name="user_email" onChange={event => setEmail(event.target.value)}/>
-                            </div>
-                            <label style={{margin: 10}}>Leave a message for our staff</label>
-                            <div>
-                                <textarea style={{width: 500, height: 200}} name="message" onChange={event => setMessage(event.target.value)}/>
-                            </div>
-                            <p>Upload a file</p>
-                            <div>
-                                <input style={{margin: 10}} type="file" name="user_file"></input>
-                                <input style={{margin: 10}} type="submit" value="Send" />
-                            </div>
-                        </div>
-                        
-                    </form>
+                    <div style={{display: "flex", justifyContent: "center", margin: 20}}>
+                    <Form style={{width: 500}} onSubmit={sendEmail}>
+                        <Form.Group className="contact-form" >
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" placeholder="example@email.com"name="user_email" onChange={event => setEmail(event.target.value)}/>
+                            <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="contact-form">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="name" placeholder="name" name="user_name" onChange={event => setName(event.target.value)}/>
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="contact-form" >
+                            <Form.Label>Leave a note</Form.Label>
+                            <Form.Control as="textarea" type="name" placeholder="note" name="user_message" onChange={event => setMessage(event.target.value)}/>
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.File id="formcheck-api-regular">
+                            <Form.File.Label>Upload a file</Form.File.Label>
+                            <Form.File.Input name="user_file"/>
+                        </Form.File>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
                     </div>
-
-
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>
