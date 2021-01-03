@@ -24,6 +24,10 @@ const Footer = () => {
                                 <a target="_blank" style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"https://www.linkedin.com/in/heman-shakeri-61ba603a/"}>LinkedIn</a>
                             </li>
                             <li style={{marginTop: 30}}>Site built by Noah Beamon</li>
+                            <li>
+                                <AiFillLinkedin size={20}/>
+                                <a target="_blank" style={{margin: 10, color: 'rgba(85, 85, 85, 1)'}} href={"https://www.linkedin.com/in/noah-b-8a45711b5/"}>LinkedIn</a>
+                            </li>
                         </ul>
                     </div>
                     <div className="col">

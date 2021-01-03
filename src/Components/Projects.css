@@ -16,9 +16,23 @@
     height: 50vw;
 }
 
+.content-results-container-b {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 5px; 
+    padding: 2vw; 
+    margin: 2vw; 
+    margin-bottom: 2vw;
+}
+
 .scroll-container {
     overflow-y: scroll; 
     height: 50vw; 
+}
+
+.scroll-container-b {
+    overflow-y: scroll;
 }
 
 .content-filter-container {

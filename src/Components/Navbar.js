@@ -26,7 +26,7 @@ function Navbar() {
             <ReactBootstrap.Nav.Link eventKey={3} href="#publications">Publications</ReactBootstrap.Nav.Link>
             </Link>
             <Link to="/Researchersandassistants" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={4} href="#protocolsandstudies">Researchers and Assistants</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link eventKey={4} href="#protocolsandstudies">People</ReactBootstrap.Nav.Link>
             </Link>
             <Link to="/Faq" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={5} href="#faq">FAQ</ReactBootstrap.Nav.Link>

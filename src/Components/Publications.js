@@ -12,11 +12,44 @@ const Publications = () => {
 
     const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
+    const[filterOpen, setFilterOpen] = useState(false); 
+
     return(
         <div className="App">
             <h1 style={{margin: 20}}><strong>Publications</strong></h1>
-            <p style={{margin: 20}}>Click an item in the list to open the publication content.</p>
-            <div className = "content-search-container">
+            <p style={{margin: 20}}>Click an item in the list to open the publication content or
+            <strong
+            style={{color: "#0693e3", cursor: "pointer"}}
+            onClick={() => {
+                setFilterOpen(true); 
+            }}
+            > filter publications.</strong>
+            </p>
+            {filterOpen && <strong style={{color: "#0693e3", cursor: "pointer"}} 
+                onClick={() => {
+                    setFilterOpen(false); 
+                }}
+            >X Close Filter</strong>}
+            {!filterOpen && <div className = "content-results-container-b">
+                    {/* <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong> */}
+                    <div className="scroll-container-b">
+                        {PublicationsJSON.filter((val)=>{
+                            return val; 
+                        }).map((val, key)=>{
+                            return (
+                            <div style={{borderRadius: "5px", cursor: "pointer"}} className = "list-element"
+                            onClick = {() => {
+                                window.location.href=val.url;  
+                            }}
+                            >
+                                    <strong>{val.title}</strong>
+                                    <p style={{fontStyle: "italic"}}>Published in {val.journal}, {val.year}</p>
+                                    <p>{val.description}</p>
+                            </div>)
+                        })}
+                    </div>
+                </div>}
+            {filterOpen && <div className = "content-search-container">
                 <div className = "content-results-container">
                     <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong>
                         <div className="scroll-container">
@@ -113,7 +146,7 @@ const Publications = () => {
                                 <strong style={{color: "white"}}>Clear</strong>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

@@ -12,11 +12,45 @@ const Projects = () => {
 
     const[buttonColor, setButtonColor] = useState("rgba(46, 61, 130, 1)");
 
+    const[filterOpen, setFilterOpen] = useState(false); 
+
     return(
         <div className="App">
             <h1 style={{margin: 20}}><strong>Projects</strong></h1>
-            <p style={{margin: 20}}>Click an item in the list to open the project content.</p>
-            <div className = "content-search-container">
+            <p style={{margin: 20}}>Click an item in the list to open the project content or  
+            <strong
+            style={{color: "#0693e3", cursor: "pointer"}}
+            onClick={() => {
+                setFilterOpen(true); 
+            }}
+            > filter projects.</strong></p>
+            {filterOpen && <strong style={{color: "#0693e3", cursor: "pointer"}} 
+                onClick={() => {
+                    setFilterOpen(false); 
+                }}
+            >X Close Filter</strong>}
+            {!filterOpen && <div className = "content-results-container-b">
+                    {/* <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong> */}
+                        <div className="scroll-container-b">
+                            {ProjectsJSON.filter((val)=>{
+                                return val; 
+                            }).map((val, key)=>{
+                                return (
+                                <div style={{borderRadius: "5px", cursor: "pointer"}} className = "list-element"
+                                onClick = {() => {
+                                    window.location.href=val.url;  
+                                }}
+                                >
+                                        <strong>{val.title}</strong>
+                                        <p>{val.description}</p>
+                                        <p>tags: {val.tags}</p>
+                                </div>)
+                            })}
+                        </div>
+                </div>
+
+            }
+            {filterOpen && <div className = "content-search-container">
                 <div className = "content-results-container">
                     <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong>
                         <div className="scroll-container">
@@ -99,7 +133,7 @@ const Projects = () => {
                                 <strong style={{color: "white"}}>Clear</strong>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
