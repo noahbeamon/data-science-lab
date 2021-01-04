@@ -58,7 +58,30 @@ const Home = () => {
 
     return(
         <div className="App">
-            <Tabs style={{marginTop: 10}}>
+            {alertVisible && <div style={{backgroundColor: "#b3e5fc", borderRadius: 10, margin: 20}}>
+                <p>Alert</p>
+                <p>We are currently accepting Graduate students. Please contact Heman Shakeri if you are interested. December 25, 2020 4:00 pm <p style={{color: "gray", cursor: "pointer"}}
+                onClick = {() =>{
+                    setAlertVisible(false); 
+                }}><strong>X Close</strong></p></p>
+            </div>}
+            <div className="content-container">
+                <ReactMd fileName="./Home.md" />
+            </div>
+            <div style={{display: "flex", flexDirection: "row", margin: 20}}>
+                <div style={{margin: 10, width: "50vw"}}>
+                    <ReactMd fileName="./News.md" />
+                </div>
+                <div style={{margin: 10, width: "50vw"}}>
+                <TwitterTimelineEmbed
+                    sourceType="profile"
+                    screenName="HemanShakeri"
+                    //options={{height: 500, width: 500}}
+                />
+                </div>
+            </div>
+
+            {/* <Tabs style={{marginTop: 10}}>
                 <TabList style={{display: "flex", alignItems: "left"}}>
                 <Tab>General Info</Tab>
                 <Tab>Activiy</Tab>
@@ -281,7 +304,7 @@ const Home = () => {
                     </div>
                     </div>
                 </TabPanel>
-            </Tabs>
+            </Tabs> */}
         </div>
     )
 }
