@@ -21,10 +21,6 @@
     height: 50vw; 
 }
 
-.scroll-container-b {
-    overflow-y: scroll;
-}
-
 .content-filter-container {
     display: flex;
     flex-direction: column;

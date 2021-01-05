@@ -1,7 +1,9 @@
 import React from 'react'
 import './App.css';
 //import * as ReactBootstrap from "react-bootstrap"; 
-import Home from "./Components/Home"
+import Home from "./Components/Home";
+import Blog from "./Components/Blog";
+import Resources from "./Components/Resources";
 import Projects from "./Components/Projects";
 import Publications from "./Components/Publications";
 import Personnel from "./Components/Personnel";
@@ -53,6 +55,12 @@ function App() {
           </Route>
           <Route path="/Projects" component={Projects}>
             <Projects />
+          </Route>
+          <Route path="/Resources" component={Resources}>
+            <Resources />
+          </Route>
+          <Route path="/Blog" component={Blog}>
+            <Blog />
           </Route>
           <Route path="/" component={Home}>
             <Home />

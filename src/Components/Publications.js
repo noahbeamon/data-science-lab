@@ -32,7 +32,7 @@ const Publications = () => {
             >X Close Filter</strong>}
             {!filterOpen && <div className = "content-results-container-b">
                     {/* <strong style={{fontSize: 25, marginBottom: 10}}>Publications</strong> */}
-                    <div className="scroll-container-b">
+                    <div>
                         {PublicationsJSON.filter((val)=>{
                             return val; 
                         }).map((val, key)=>{

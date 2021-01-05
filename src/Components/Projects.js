@@ -31,7 +31,7 @@ const Projects = () => {
             >X Close Filter</strong>}
             {!filterOpen && <div className = "content-results-container-b">
                     {/* <strong style={{fontSize: 25, marginBottom: 10}}>Projects</strong> */}
-                        <div className="scroll-container-b">
+                        <div>
                             {ProjectsJSON.filter((val)=>{
                                 return val; 
                             }).map((val, key)=>{
