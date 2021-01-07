@@ -3,11 +3,11 @@ import './App.css';
 //import * as ReactBootstrap from "react-bootstrap"; 
 import Home from "./Components/Home";
 import Blog from "./Components/Blog";
-import Resources from "./Components/Resources";
 import Projects from "./Components/Projects";
 import Publications from "./Components/Publications";
 import Personnel from "./Components/Personnel";
-import Faqs from "./Components/Faqs";
+import Teachingandlectures from "./Components/Teachingandlectures";
+import Contact from "./Components/Contact";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer"; 
 
@@ -44,11 +44,14 @@ function App() {
             <HemanShakeri />
           </Route>
           {/*Tabs*/}
-          <Route path="/Faq" component={Faqs}>
-            <Faqs />
+          <Route path="/Contact" component={Contact}>
+            <Contact />
           </Route>
-          <Route path="/Researchersandassistants" component={Personnel}>
-            <Personnel />
+          <Route path="/Blog" component={Blog}>
+            <Blog />
+          </Route>
+          <Route path="/Teachingandlectures" component={Teachingandlectures}>
+            <Teachingandlectures />
           </Route>
           <Route path="/Publications" component={Publications}>
             <Publications />
@@ -56,11 +59,8 @@ function App() {
           <Route path="/Projects" component={Projects}>
             <Projects />
           </Route>
-          <Route path="/Resources" component={Resources}>
-            <Resources />
-          </Route>
-          <Route path="/Blog" component={Blog}>
-            <Blog />
+          <Route path="/People" component={Personnel}>
+            <Personnel />
           </Route>
           <Route path="/" component={Home}>
             <Home />

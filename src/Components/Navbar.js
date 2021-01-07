@@ -19,23 +19,23 @@ function Navbar() {
             <Link to="/" style={{textDecoration: "none"}}>
             <ReactBootstrap.Nav.Link eventKey={1} href="#home">Home</ReactBootstrap.Nav.Link>
             </Link>
-            <Link to="/Blog" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={2} href="#blog">Blog</ReactBootstrap.Nav.Link>
-            </Link>
-            <Link to="/Resources" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={3} href="#resources">Resources</ReactBootstrap.Nav.Link>
+            <Link to="/People" style={{textDecoration: "none"}}>
+            <ReactBootstrap.Nav.Link eventKey={2} href="#protocolsandstudies">People</ReactBootstrap.Nav.Link>
             </Link>
             <Link to="/Projects" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={4} href="#reports">Projects</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link eventKey={3} href="#reports">Projects</ReactBootstrap.Nav.Link>
             </Link>
             <Link to="/Publications" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={5} href="#publications">Publications</ReactBootstrap.Nav.Link>
+            <ReactBootstrap.Nav.Link eventKey={4} href="#publications">Publications</ReactBootstrap.Nav.Link>
             </Link>
-            <Link to="/Researchersandassistants" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={6} href="#protocolsandstudies">People</ReactBootstrap.Nav.Link>
+            <Link to="/Teachingandlectures" style={{textDecoration: "none"}}>
+            <ReactBootstrap.Nav.Link eventKey={5} href="#publications">Teaching/Lectures</ReactBootstrap.Nav.Link>
             </Link>
-            <Link to="/Faq" style={{textDecoration: "none"}}>
-            <ReactBootstrap.Nav.Link eventKey={7} href="#faq">FAQ</ReactBootstrap.Nav.Link>
+            <Link to="/Blog" style={{textDecoration: "none"}}>
+            <ReactBootstrap.Nav.Link eventKey={6} href="#blog">Blog</ReactBootstrap.Nav.Link>
+            </Link>
+            <Link to="/Contact" style={{textDecoration: "none"}}>
+            <ReactBootstrap.Nav.Link eventKey={7} href="#contact">Contact</ReactBootstrap.Nav.Link>
             </Link>
           </ReactBootstrap.Nav>
         </ReactBootstrap.Navbar.Collapse>

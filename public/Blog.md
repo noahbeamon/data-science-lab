@@ -1,5 +1,7 @@
 ## Blog Posts
 
+(This is an example md file for blogs -Blog.md)
+
 2019
 <hr />
 

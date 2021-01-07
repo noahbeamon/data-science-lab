@@ -4,8 +4,7 @@ import ReactMd from 'react-md-file';
 const Personnel = () => {
     return(
         <div className="App">
-            <h1 style={{margin: 20}}><strong>Personnel</strong></h1>
-            <p>Click to see a bio</p>
+            <p style={{margin: 20}}>Click to see a bio</p>
             <div style={{display: "flex", flexDirection: "row"}}>
                 <div style={{display: "flex", flexDirection: "column", backgroundColor: "whitesmoke", borderRadius: 10, margin: 20, width: 250, cursor: "pointer"}}
                 onClick={() => {

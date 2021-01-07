@@ -1,21 +1,7 @@
 # News
 
-(this is a md file in react including the title-this is an example file- News.md)
+2021-01-06 The wastewater surveillance project has expanded outside of the university. Read <a href="https://dailyprogress.com/news/local/govt-and-politics/wastewater-surveillance-for-covid-expands-to-greater-charlottesville-area/article_532223c0-37d7-11eb-8268-cb15607ce35e.html#tracking-source=home-top-story%E2%80%8B" target="_blank">this article</a> from The Daily Progress to learn more.
 
-2020-05-14 You can see Shou-Wen’s fellowship press release here, finally out.
+2021-01-06 Check out <a href="https://www.nbc29.com/2020/12/13/uva-researchers-facilities-workers-test-wastewater-track-spread-covid-/" target="_blank">this article</a> by NBC29 regarding the use of wastewater by university researchers and facilities personnel to track the spread of COVID-19. 
 
-2020-03-15  Congratulations Shou-Wen for being awarded a Damon Runyon Postdoctoral Fellowship!
-
-2020-01-23 Caleb’s paper tracing state and fate on transcriptional landscapes is just out in press. After more than a year in review!
-
-2020-01-16 We’re excited to receive the 2020 “Outstanding Young Investigator Award” from the ISSCR! Thank you!
-
-2020-01-01 Congratulations Dan Wagner for starting as an assistant professor at UCSF!
-
-2020-01-01 Goodbye and congratulations Samuel Wolock for starting as a research scientist at Dyno Therapeutics! On to the next adventure!
-
-2019-11-25 Congratulations Katie McCauley for starting as a principal investigator at Novartis!
-
-2019-11-10 Congratulations Nikit for being awarded a Damon Runyon Postdoctoral Fellowship!
-
-2019-11-10 Congratulations Nikit for being awarded a Damon Runyon Postdoctoral Fellowship! 2019-11-10 Congratulations Nikit for being awarded a Damon Runyon Postdoctoral Fellowship!
+2020-12-25 View our COVID-19 wastewater tracker web application <a href="https://uvacovidwastewater.herokuapp.com/" target="_blank">here</a>. Want to learn more? Read the project documents <a href="/Wastewater">here</a>.
